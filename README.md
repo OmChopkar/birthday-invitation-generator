@@ -21,6 +21,3 @@ A stylish and interactive web application that allows users to create personaliz
 * `index.html` - The main structure and UI of the application.
 * `styles.css` - Custom styling, including animations and responsive media queries.
 * `script.js` - Functional logic for generating the invitation card.
-
-## 📸 Screenshots
-*(You can add a screenshot here later by uploading an image to GitHub and linking it)*
