@@ -5,6 +5,7 @@ A stylish and interactive web application that allows users to create personaliz
 * **Custom Details:** Input the name, host, date, time, and venue.
 * **Photo Upload:** Option to add a personal photo to the invitation card.
 * **Instant Preview:** Generates a beautifully styled invitation card immediately upon clicking "Generate".
+* **Downloadable Invitations:** Export your generated invitation as a high-quality PNG image.
 * **Responsive Design:** Works perfectly on both desktop and mobile devices.
 
 ## 🛠️ Built With
@@ -16,6 +17,7 @@ A stylish and interactive web application that allows users to create personaliz
 1. Clone this repository or download the ZIP file.
 2. Open `index.html` in any modern web browser.
 3. Fill in the details and click **Generate Invitation**.
+4. Click Download Invitation to save the custom card to your device.
 
 ## 📂 Project Structure
 * `index.html` - The main structure and UI of the application.
