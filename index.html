@@ -1,109 +1,91 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    	<meta charset="UTF-8">
-    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    	<title>Birthday Invitation Generator</title>
-    	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-    	<link rel="stylesheet" href="styles.css">
-<style>
-	@media (max-width: 768px) 
-	{	
-		h1 
-		{
-                	font-size: 2.5rem;
-            	}
-            
-            	.form-container, .invitation-container 
-		{
-                	padding: 20px;
-            	}
-            
-            	.invitation-title 
-		{
-                	font-size: 3.5rem;
-            	}
-            
-            	.circular-image 
-		{
-                	width: 150px;
-                	height: 150px;
-            	}
-            
-            	.invitation-message 
-		{
-                	font-size: 1.2rem;
-            	}
-            
-            	.btn-container 
-		{
-                	flex-direction: column;
-            	}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Invitation Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- html2canvas library: MUST be before script.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        @media (max-width: 768px) {	
+            h1 { font-size: 2.5rem; }
+            .form-container, .invitation-container { padding: 20px; }
+            .invitation-title { font-size: 3.5rem; }
+            .circular-image { width: 150px; height: 150px; }
+            .invitation-message { font-size: 1.2rem; }
+            .btn-container { flex-direction: column; }
         }
-</style>
+    </style>
 </head>
 <body>
-    	<div class="container">
-        	<header style="text-align: center; margin-bottom: 30px;">
-            	<h1>Birthday Invitation Generator</h1>
-            	<p class="subtitle">Let's Make Someones Day Special!!!</p>
-        	</header>
+    <div class="container">
+        <header style="text-align: center; margin-bottom: 30px;">
+            <h1>Birthday Invitation Generator</h1>
+            <p class="subtitle">Let's Make Someones Day Special!!!</p>
+        </header>
         
-        	<div class="form-container">
-            	<h2 class="form-title">Enter Details</h2>
-            
-            	<form id="invitationForm">
-                	<div class="form-group">
-                    		<label for="name">Your Name *</label>
-                    		<input type="text" id="name" placeholder="Enter your name">
-                    		<div class="error" id="nameError">Please enter your name</div>
-               		</div>
+        <div class="form-container">
+            <h2 class="form-title">Enter Details</h2>
+            <form id="invitationForm">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" placeholder="Enter your name">
+                    <div class="error" id="nameError">Please enter your name</div>
+                </div>
                 
-                	<div class="form-group">
-                    		<label for="host">Hosted By (optional)</label>
-                    		<input type="text" id="host" placeholder="Who's hosting?">
-               		</div>
+                <div class="form-group">
+                    <label for="host">Hosted By (optional)</label>
+                    <input type="text" id="host" placeholder="Who's hosting?">
+                </div>
                 
-                	<div class="form-group">
-                    		<label for="date">Date *</label>
-                    		<input type="date" id="date">
-                    		<div class="error" id="dateError">Please select a date</div>
-                	</div>
+                <div class="form-group">
+                    <label for="date">Date *</label>
+                    <input type="date" id="date">
+                    <div class="error" id="dateError">Please select a date</div>
+                </div>
                 
-                	<div class="form-group">
-                    		<label for="time">Time *</label>
-                    		<input type="time" id="time">
-                    		<div class="error" id="timeError">Please select a time</div>
-                	</div>
+                <div class="form-group">
+                    <label for="time">Time *</label>
+                    <input type="time" id="time">
+                    <div class="error" id="timeError">Please select a time</div>
+                </div>
                 
-                	<div class="form-group">
-                    		<label for="venue">Venue *</label>
-                    		<textarea id="venue" rows="2" placeholder="Enter the venue address"></textarea>
-                    		<div class="error" id="venueError">Please enter the venue</div>
-               	 	</div>
+                <div class="form-group">
+                    <label for="venue">Venue *</label>
+                    <textarea id="venue" rows="2" placeholder="Enter the venue address"></textarea>
+                    <div class="error" id="venueError">Please enter the venue</div>
+                </div>
                 
-                	<div class="form-group">
-                    		<label for="photo">Upload Photo (optional)</label>
-                    		<input type="file" id="photo" accept="image/*">
-                	</div>
+                <div class="form-group">
+                    <label for="photo">Upload Photo (optional)</label>
+                    <input type="file" id="photo" accept="image/*">
+                </div>
                 
-                	<div class="btn-container">
-                    		<button type="button" class="btn-generate" id="generateBtn">Generate Invitation</button>
-                    		<button type="reset" class="btn-reset">Reset Form</button>
-                	</div>
-            	</form>
-	</div>
-        
-        <div class="invitation-container" id="invitationCard">
-        	<h2 class="invitation-title">Happy Birthday</h2>
-        	<img src="" class="circular-image" id="invitationPhoto" alt="Birthday Person">
-		<p class="invitation-message">
-                	Join us for a fun-filled celebration of <span class="highlight" id="finalName"></span><br>
-                	on <span class="highlight" id="finalDateTime"></span><br>
-                	at <span class="highlight" id="finalVenue"></span>
-        	</p>
+                <div class="btn-container">
+                    <button type="button" class="btn-generate" id="generateBtn">Generate Invitation</button>
+                    <button type="reset" class="btn-reset">Reset Form</button>
+                </div>
+            </form>
         </div>
-	</div>
+        
+        <!-- The ID 'invitationCard' is what we will capture -->
+        <div class="invitation-container" id="invitationCard">
+            <h2 class="invitation-title">Happy Birthday</h2>
+            <img src="" class="circular-image" id="invitationPhoto" alt="Birthday Person">
+            <p class="invitation-message">
+                Join us for a fun-filled celebration of <span class="highlight" id="finalName"></span><br>
+                on <span class="highlight" id="finalDateTime"></span><br>
+                at <span class="highlight" id="finalVenue"></span>
+            </p>
+            <!-- Download Button inside the container -->
+            <div class="btn-container" style="margin-top: 30px;">
+                <button type="button" class="btn-generate" id="downloadBtn">Download Invitation</button>
+            </div>
+        </div>
+    </div>
 
-<script src="script.js">    </script>
+    <script src="script.js"></script>
 </body>
 </html>
